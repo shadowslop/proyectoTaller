@@ -299,7 +299,7 @@ public class ReservaController {
                 mostrar(botonEditar, activa);
                 mostrar(botonCancelar, activa);
                 mostrar(botonEliminar, eliminable);
-                mostrar(botonEntregar, reserva.puedeEklkntregarse());
+                mostrar(botonEntregar, reserva.puedeEntregarse());
 
                 setGraphic(contenedor);
             }
