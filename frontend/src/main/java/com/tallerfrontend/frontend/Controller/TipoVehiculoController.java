@@ -152,7 +152,7 @@ public class TipoVehiculoController {
                 } catch (ApiException e) {
                     mostrarError(e.getMessage());
                 } catch (Exception e) {
-                    mostrarError("No se pudo desactivar el tipo");
+                    mostrarError("No se pudo desactivar el Tipo");
                 }
             }
         });
