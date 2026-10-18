@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox spacing="16" xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.tallerfrontend.frontend.Controller.ReservaController">
+    <padding>
+        <Insets top="20" bottom="20" left="20" right="20"/>
+    </padding>
+
+    <Label text="Agendar cita (Reserva)" style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
+
+    <HBox spacing="10" alignment="CENTER_LEFT">
+        <ComboBox fx:id="comboClienteReserva" promptText="Cliente (escribe para buscar)" editable="true" prefWidth="220"/>
+        <ComboBox fx:id="comboVehiculoReserva" promptText="Vehiculo (placa o tipo)" editable="true" prefWidth="200"/>
+    </HBox>
+
+    <HBox spacing="10" alignment="CENTER_LEFT">
+        <VBox spacing="4">
+            <Label text="Inicio"/>
+            <HBox spacing="6">
+                <DatePicker fx:id="fechaInicioReserva" prefWidth="140"/>
+                <TextField fx:id="horaInicioReserva" promptText="HH:mm" prefWidth="70"/>
+            </HBox>
+        </VBox>
+        <VBox spacing="4">
+            <Label text="Fin"/>
+            <HBox spacing="6">
+                <DatePicker fx:id="fechaFinReserva" prefWidth="140"/>
+                <TextField fx:id="horaFinReserva" promptText="HH:mm" prefWidth="70"/>
+            </HBox>
+        </VBox>
+        <Button fx:id="botonGuardarReserva" text="Agendar cita" onAction="#handleAgendarReserva"/>
+        <Button fx:id="botonCancelarEdicionReserva" text="Cancelar edicion" onAction="#handleCancelarEdicionReserva" visible="false" managed="false"/>
+    </HBox>
+
+    <Label fx:id="labelErrorReserva" style="-fx-text-fill: red;" visible="false"/>
+
+    <Label text="Reservas de la sede" style="-fx-font-size: 16px; -fx-font-weight: bold;"/>
+
+    <TextField fx:id="campoFiltroReservas" promptText="Filtrar por cliente, placa o estado" maxWidth="380"/>
+
+    <TableView fx:id="tablaReservas" prefHeight="400">
+        <columns>
+            <TableColumn fx:id="colClienteReserva" text="Cliente" prefWidth="150"/>
+            <TableColumn fx:id="colVehiculoReserva" text="Vehiculo" prefWidth="90"/>
+            <TableColumn fx:id="colInicioReserva" text="Inicio" prefWidth="140"/>
+            <TableColumn fx:id="colFinReserva" text="Fin" prefWidth="140"/>
+            <TableColumn fx:id="colEstadoReserva" text="Estado" prefWidth="120" minWidth="120"/>
+            <TableColumn fx:id="colAccionReserva" text="Accion" prefWidth="360" minWidth="360"/>
+        </columns>
+    </TableView>
+</VBox>

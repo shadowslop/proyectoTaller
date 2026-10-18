@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox spacing="16" xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.tallerfrontend.frontend.Controller.VehiculoController">
+    <padding>
+        <Insets top="20" bottom="20" left="20" right="20"/>
+    </padding>
+
+    <Label text="Vehiculos" style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
+
+    <HBox fx:id="panelCrear" spacing="10" alignment="CENTER_LEFT">
+        <TextField fx:id="campoPlaca" promptText="Placa"/>
+        <ComboBox fx:id="comboTipo" promptText="Tipo"/>
+        <TextField fx:id="campoPrecioDia" promptText="Precio/dia (se autocompleta con el tipo)"/>
+        <ComboBox fx:id="comboSede" promptText="Sede"/>
+        <Button text="Crear vehiculo" onAction="#handleCrear"/>
+    </HBox>
+
+    <Label fx:id="labelError" style="-fx-text-fill: red;" visible="false"/>
+
+    <HBox spacing="10" alignment="CENTER_LEFT">
+        <TextField fx:id="campoFiltro" promptText="Buscar por placa o tipo" prefWidth="200"/>
+        <ComboBox fx:id="filtroSede" promptText="Todas las sedes"/>
+        <ComboBox fx:id="filtroTipo" promptText="Todos los tipos"/>
+        <ComboBox fx:id="filtroEstado"/>
+        <Button text="Limpiar filtros" onAction="#handleLimpiarFiltros"/>
+    </HBox>
+
+    <TableView fx:id="tablaVehiculos" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="colPlaca" text="Placa" prefWidth="90"/>
+            <TableColumn fx:id="colTipo" text="Tipo" prefWidth="100"/>
+            <TableColumn fx:id="colPrecioDia" text="Precio/dia" prefWidth="100"/>
+            <TableColumn fx:id="colEstado" text="Estado" prefWidth="100"/>
+            <TableColumn fx:id="colSede" text="Sede" prefWidth="120"/>
+            <TableColumn fx:id="colAccion" text="Accion" prefWidth="90"/>
+        </columns>
+    </TableView>
+
+    <VBox fx:id="panelSuperAdmin" spacing="10">
+        <Separator/>
+        <Label text="Reasignar sede (SuperAdmin)" style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
+        <Label fx:id="labelVehiculoSeleccionado" text="Selecciona un vehiculo en la tabla"/>
+
+        <HBox spacing="10" alignment="CENTER_LEFT">
+            <ComboBox fx:id="comboSedeDestino" promptText="Nueva sede"/>
+            <Button text="Cambiar sede" onAction="#handleCambiarSede"/>
+        </HBox>
+
+        <Label fx:id="labelErrorSede" style="-fx-text-fill: red;" visible="false"/>
+
+        <Label text="Vehiculos por sede" style="-fx-font-size: 16px; -fx-font-weight: bold;"/>
+        <ListView fx:id="listaConteoPorSede" prefHeight="120"/>
+    </VBox>
+</VBox>

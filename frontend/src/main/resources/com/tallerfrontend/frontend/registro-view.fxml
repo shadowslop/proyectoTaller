@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox spacing="16" xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.tallerfrontend.frontend.Controller.RegistroController">
+    <padding>
+        <Insets top="20" bottom="20" left="20" right="20"/>
+    </padding>
+
+    <Label text="Registrar Prestamo" style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
+
+    <HBox spacing="10" alignment="CENTER_LEFT">
+        <ComboBox fx:id="comboCliente" promptText="Cliente (escribe para buscar)" editable="true" prefWidth="280"/>
+        <ComboBox fx:id="comboVehiculo" promptText="Vehiculo (placa o tipo)" editable="true" prefWidth="260"/>
+        <Button text="Registrar prestamo" onAction="#handleCrearPrestamo"/>
+    </HBox>
+
+    <Label fx:id="labelError" style="-fx-text-fill: red;" visible="false"/>
+
+    <Separator/>
+
+    <Label text="Recibir vehiculo de otra sede" style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
+
+    <HBox spacing="10" alignment="CENTER_LEFT">
+        <TextField fx:id="campoBuscarPlaca" promptText="Placa del vehiculo"/>
+        <Button text="Buscar" onAction="#handleBuscarPlaca"/>
+        <Label fx:id="labelResultadoBusqueda"/>
+        <Button fx:id="botonDevolverAqui" text="Devolver aqui" onAction="#handleDevolverAqui" visible="false" managed="false"/>
+    </HBox>
+
+    <Label fx:id="labelErrorBusqueda" style="-fx-text-fill: red;" visible="false"/>
+
+    <Label text="Historial de la sede" style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
+
+    <TextField fx:id="campoFiltroPrestamos" promptText="Filtrar por cliente, cedula, placa o estado" maxWidth="380"/>
+
+    <TableView fx:id="tablaPrestamos" prefHeight="400">
+        <columns>
+            <TableColumn fx:id="colCliente" text="Cliente" prefWidth="160"/>
+            <TableColumn fx:id="colVehiculo" text="Vehiculo" prefWidth="100"/>
+            <TableColumn fx:id="colEstado" text="Estado" prefWidth="90"/>
+            <TableColumn fx:id="colMonto" text="Monto" prefWidth="100"/>
+            <TableColumn fx:id="colAccion" text="Accion" prefWidth="100"/>
+        </columns>
+    </TableView>
+</VBox>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox spacing="16" xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.tallerfrontend.frontend.Controller.AuditoriaController">
+    <padding>
+        <Insets top="20" bottom="20" left="20" right="20"/>
+    </padding>
+
+    <Label text="Bitacora de Auditoria" style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
+
+    <HBox spacing="10" alignment="CENTER_LEFT">
+        <TextField fx:id="campoBuscar" promptText="Buscar por usuario, accion, entidad o detalle" prefWidth="320"/>
+        <Button text="Refrescar" onAction="#handleRefrescar"/>
+    </HBox>
+
+    <Label fx:id="labelError" style="-fx-text-fill: red;" visible="false"/>
+
+    <TableView fx:id="tablaAuditoria" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="colFecha" text="Fecha y hora" prefWidth="150"/>
+            <TableColumn fx:id="colUsuario" text="Usuario" prefWidth="140"/>
+            <TableColumn fx:id="colAccion" text="Accion" prefWidth="120"/>
+            <TableColumn fx:id="colEntidad" text="Entidad" prefWidth="120"/>
+            <TableColumn fx:id="colDetalle" text="Detalle" prefWidth="300"/>
+        </columns>
+    </TableView>
+</VBox>

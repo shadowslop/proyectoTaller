@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox alignment="CENTER" spacing="16" styleClass="login-box"
+      xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.tallerfrontend.frontend.Controller.LoginController">
+    <padding>
+        <Insets top="40" bottom="40" left="40" right="40"/>
+    </padding>
+
+    <Label text="Concesionaria - Iniciar Sesion" style="-fx-font-size: 20px; -fx-font-weight: bold;"/>
+
+    <TextField fx:id="campoUsuario" promptText="Usuario" maxWidth="260"/>
+    <PasswordField fx:id="campoPassword" promptText="Contraseña" maxWidth="260"/>
+
+    <Button fx:id="botonLogin" text="Iniciar sesion" onAction="#handleLogin" maxWidth="260"/>
+
+    <Label fx:id="labelError" style="-fx-text-fill: red;" visible="false"/>
+</VBox>

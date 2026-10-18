@@ -1,0 +1,9 @@
+com\tallerfrontend\frontend\HelloController.class
+com\tallerfrontend\frontend\HelloApplication.class
+com\tallerfrontend\frontend\Controller\LoginController.class
+com\tallerfrontend\frontend\Model\LoginRequest.class
+com\tallerfrontend\frontend\Model\LoginResponse.class
+com\tallerfrontend\frontend\util\SesionActual.class
+com\tallerfrontend\frontend\services\ApiException.class
+com\tallerfrontend\frontend\services\ApiClient.class
+com\tallerfrontend\frontend\Controller\DashboardController.class
