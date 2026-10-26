@@ -26,7 +26,7 @@ public interface ReservaRepository extends JpaRepository<Reserva, UUID> {
                              com.taller.tallerbackend.persistencias.entidades.EstadoReserva.EN_CURSO)
           AND r.fechaInicio < :fechaFin
           AND r.fechaFin > :fechaInicio
-          AND (:reservaExcluidaId IS NULL OR r.id <> :reservaExcluidaId)
+          AND r.id <> :reservaExcluidaId
         """)
     List<Reserva> buscarSolapadas(@Param("placa") String placa,
                                   @Param("fechaInicio") OffsetDateTime fechaInicio,

@@ -151,7 +151,8 @@ public class ReservaService {
 
     // RF-30
     private void verificarDisponibilidad(String placa, OffsetDateTime inicio, OffsetDateTime fin, UUID reservaExcluidaId) {
-        List<Reserva> solapadas = reservaRepository.buscarSolapadas(placa, inicio, fin, reservaExcluidaId);
+        UUID excluir = (reservaExcluidaId != null) ? reservaExcluidaId : new UUID(0L, 0L);
+        List<Reserva> solapadas = reservaRepository.buscarSolapadas(placa, inicio, fin, excluir);
         if (!solapadas.isEmpty()) {
             throw new VehiculoNoDisponibleEnPeriodoException();
         }
